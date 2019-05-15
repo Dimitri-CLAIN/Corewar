@@ -22,6 +22,21 @@ char *my_itohex(int nb, char *r_hex)
     return (r_hex);
 }
 
+int my_hextoi(char *nb)
+{
+    int val = 1;
+    int res = 0;
+    int n_pos = strlen(nb) - 1;
+
+    while (n_pos >= 0) {
+        if (nb[n_pos] == '1')
+            res += val;
+        n_pos--;
+        val *= 16;
+    }
+    return (res);
+}
+
 int my_bintoi(char *nb)
 {
    int val = 1;
@@ -34,7 +49,7 @@ int my_bintoi(char *nb)
       n_pos--;
       val *= 2;
    }
-   return(res);
+   return (res);
 }
 
 char *my_bintohex(char *bin)

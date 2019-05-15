@@ -19,7 +19,11 @@ int detect_my_cmd(char *cmd)
     return (FALSE);
 }
 
-/* char *command_to_hexa(char *cmd) */
+/* void init_my_cmd(char *cmd) */
+/* { */
+    
+/* } */
+/* char *command_to_bin(char *cmd) */
 /* { */
 /*     int n = 0; */
 /*     int flag = 0; */
@@ -35,3 +39,6 @@ int detect_my_cmd(char *cmd)
 
 /*trouver la size final < 1 octet, une commande chaque comma*/
 /*Faire un char *avec les valeurs -> array, */
+
+
+/* Faire un malloc size(trouver grace a la fonction); mettre en binaire, mettre en exa / mettre en int*/

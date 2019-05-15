@@ -42,6 +42,7 @@ int search_size(char **cmd, asm_t *info)
     bin[8] = '\0';
     while (cmd[n] != NULL) {
         flag = detect_my_cmd(cmd[n]);
+        printf("[%s] -> flag = %d\n", cmd[n], flag);
         size = do_flag_change(flag, &bin, size, &x);
         n++;
         flag = 0;
@@ -50,6 +51,8 @@ int search_size(char **cmd, asm_t *info)
         bin[x] = '0';
         x++;
     }
-    
+    printf("%s->", bin);
+    for (n = 0; cmd[n] != NULL; n++)
+        printf("[%s]", cmd[n]);
     return (size);
 }

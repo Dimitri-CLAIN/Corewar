@@ -26,6 +26,7 @@ int search_size(char **, asm_t *);
 int detect_my_cmd(char *);
 char *my_bintohex(char *);
 int create_my_bin(asm_t *);
+int big_to_little_endian(int, int);
 
 char *my_strcat(char *, char *);
 int my_strlen_char(char *, char );
