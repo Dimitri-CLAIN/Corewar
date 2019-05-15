@@ -17,6 +17,9 @@ int main(int ac, char **av)
     file = read_my_file(av[1]);
     if (check_file(file, &a) == 84)
         return (84);
+    /*printf("NAME = %s\nCOMMENT = %s\nINST =\n", a.name, a.comment);
+    for (int z = 0 ; a.inst[z] != NULL ; z++)
+        printf("%s\n", a.inst[z]);*/
     free_my_tab(file);
     free(a.name);
     free(a.comment);

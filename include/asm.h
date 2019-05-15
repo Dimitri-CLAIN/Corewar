@@ -14,4 +14,10 @@ typedef struct asm_t {
     char **inst;
 } asm_t;
 
+typedef struct inst_ck {
+    char *str;
+    int len;
+    //char **(*fonc)(char **tab, char **env, save *sv);
+} inst;
+
 #endif /* !ASM_H_ */

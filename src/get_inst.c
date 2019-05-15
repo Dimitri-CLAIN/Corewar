@@ -13,8 +13,8 @@ int get_inst_nb(char **file, int name, int comment)
     int nb = 0;
 
     while (file[i] != NULL) {
-        if (file[i][0] != '\0' && i != name &&
-            i != comment && file[i][0] != '#') {
+        if (file[i][0] != '\0' && i != name && i != comment &&
+            file[i][0] != '#' && file[i][my_strlen(file[i]) - 1] != ':') {
             nb = nb + 1;
         }
         i = i + 1;
@@ -42,7 +42,7 @@ int get_inst(char **file, asm_t *a, int name, int comment)
     for (int i = 0 ; file[i] != NULL ; i++) {
         file[i] = my_clean_str(file[i]);
         if (file[i][0] != '\0' && i != comment && i != name &&
-            file[i][0] != '#') {
+            file[i][0] != '#' && file[i][my_strlen(file[i]) - 1] != ':') {
             a->inst[y] = file[i];
             pos = check_val_pos(i, name, comment);
             y = y + 1;
