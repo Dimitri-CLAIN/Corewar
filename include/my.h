@@ -22,6 +22,10 @@
 char *add_char(char *, char);
 char *my_itohex(int, char *);
 char **read_my_file(char *);
+int search_size(char **, asm_t *);
+int detect_my_cmd(char *);
+char *my_bintohex(char *);
+int create_my_bin(asm_t *);
 
 char *my_strcat(char *, char *);
 int my_strlen_char(char *, char );

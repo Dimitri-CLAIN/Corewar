@@ -7,11 +7,14 @@
 
 SRC_FOLDER 	=		src/
 
-SRC_FILE	=		add_char.c		\
-					my_itohex.c		\
-					read_my_file.c	\
-					check_file.c	\
-					get_inst.c
+SRC_FILE	=		add_char.c	\
+				my_itohex.c	\
+				read_my_file.c	\
+				command_to_hexa.c\
+				correct_size.c	\
+				check_file.c	\
+				get_inst.c	\
+				create_my_bin.c
 
 SRC		=		$(addprefix $(SRC_FOLDER), $(SRC_FILE))
 
