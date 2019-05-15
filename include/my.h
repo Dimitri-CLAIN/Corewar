@@ -16,14 +16,16 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include "asm.h"
 #include "enum.h"
 
 char *add_char(char *, char);
 char *my_itohex(int, char *);
 char **read_my_file(char *);
-int search_size(char **);
+int search_size(char **, asm_t *);
 int detect_my_cmd(char *);
 char *my_bintohex(char *);
+int create_my_bin(asm_t *);
 
 char *my_strcat(char *, char *);
 int my_strlen_char(char *, char );
@@ -40,5 +42,8 @@ char **my_str_to_all_array(char *, char);
 char *my_str_to_word_array_n(char *, char **);
 void free_my_tab(char **);
 char **my_clean_str_to_array(char *, char);
+int my_strncmp(char *s1, char *s2, int nb);
+int check_file(char **file, asm_t *a);
+int get_inst(char **file, asm_t *a, int name, int comment);
 
 #endif

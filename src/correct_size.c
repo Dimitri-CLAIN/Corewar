@@ -31,7 +31,7 @@ int do_flag_change(int flag, char **bin, int size, int *x)
     return (size);
 }
 
-int search_size(char **cmd)
+int search_size(char **cmd, asm_t *info)
 {
     int size = 0;
     int n = 0;
@@ -50,6 +50,6 @@ int search_size(char **cmd)
         bin[x] = '0';
         x++;
     }
-    printf("en int = [%d]\n", my_getnbr(bin));
+    
     return (size);
 }

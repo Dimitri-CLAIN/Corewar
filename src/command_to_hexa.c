@@ -19,15 +19,6 @@ int detect_my_cmd(char *cmd)
     return (FALSE);
 }
 
-/* char *convert_str(int flag, char *cmd, int n) */
-/* { */
-/*     int x = 0; */
-
-/*     while (cmd[n] != '\0') { */
-        
-/*     } */
-/* } */
-
 /* char *command_to_hexa(char *cmd) */
 /* { */
 /*     int n = 0; */
@@ -41,5 +32,6 @@ int detect_my_cmd(char *cmd)
 /*     } */
 /*     return (res); */
 /* } */
+
 /*trouver la size final < 1 octet, une commande chaque comma*/
 /*Faire un char *avec les valeurs -> array, */

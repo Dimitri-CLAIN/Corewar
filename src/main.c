@@ -7,21 +7,27 @@
 
 #include "my.h"
 
+void ultimate_free(asm_t *info, char **file)
+{
+    free_my_tab(file);
+    free(info->name);
+    free(info->comment);
+}
+
 int main(int ac, char **av)
 {
-    /* char **cmd = my_str_to_all_array("r2,23,%34", ',');/\*mettre effacer les espace au tour de ','*\/ */
-    /* int lol = search_size(cmd); */
-    /* printf("->>>%d]]]\n", lol); */
+    char **file = NULL;
+    asm_t *info = malloc(sizeof(asm_t));
 
-    /* int n = 0; */
-    /* char **file = NULL; */
-
-    /* if (av[1] == NULL) */
-    /*     return (84); */
-    /* file = read_my_file(av[1]); */
-    /* while (file[n] != NULL) { */
-    /*     printf("%s\n", file[n]); */
-    /*     n++; */
-    /* } */
-    /* free_my_tab(file); */
+    if (av[1] == NULL) {
+        free(info);
+        return (84);
+    }
+    file = read_my_file(av[1]);
+    if (check_file(file, info) == 84) {
+        ultimate_free(info, file);
+        return (84);
+    }
+    create_my_bin(info);
+    ultimate_free(info, file);
 }
