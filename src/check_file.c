@@ -35,7 +35,8 @@ int get_name(char **file, asm_t *a)
     a->name = NULL;
     while (file[i] != NULL) {
         file[i] = my_clean_str(file[i]);
-        if (my_strncmp(file[i], ".name", 5) == 0 &&
+        if (my_strncmp(file[i], NAME_CMD_STRING,
+            my_strlen(NAME_CMD_STRING)) == 0 &&
             file[i][5] == ' ') {
             last = i;
             take_name(file[i], a);
@@ -76,7 +77,8 @@ int get_comment(char **file, asm_t *a)
     a->comment = NULL;
     while (file[i] != NULL) {
         file[i] = my_clean_str(file[i]);
-        if (my_strncmp(file[i], ".comment", 8) == 0 && file[i][8] == ' ') {
+        if (my_strncmp(file[i], COMMENT_CMD_STRING,
+            my_strlen(COMMENT_CMD_STRING)) == 0 && file[i][8] == ' ') {
             take_comment(file[i], a);
             last = i;
             nb = nb + 1;

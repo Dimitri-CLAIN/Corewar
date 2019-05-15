@@ -16,14 +16,10 @@ typedef struct asm_t {
     char **inst;
 } asm_t;
 
-<<<<<<< HEAD
 typedef struct inst_ck {
     char *str;
     int len;
     //char **(*fonc)(char **tab, char **env, save *sv);
-} inst;
+} inst_t;
 
-#endif /* !ASM_H_ */
-=======
 #endif
->>>>>>> origin/Assembler_Dimitri
