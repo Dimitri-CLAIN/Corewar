@@ -14,13 +14,13 @@
 #define MEM_SIZE                (6*1024)
 #define IDX_MOD                 512   /* modulo of the index < */
 #define MAX_ARGS_NUMBER         4     /* this may not be changed 2^*IND_SIZE */
-#define COMMENT_CHAR            '#'
+#define COMMENT_CHAR            '#' //dif
 #define LABEL_CHAR              ':'
 #define DIRECT_CHAR             '%'
 #define SEPARATOR_CHAR          ','
-#define LABEL_CHARS             "abcdefghijklmnopqrstuvwxyz_0123456789"
-#define NAME_CMD_STRING         ".name"
-#define COMMENT_CMD_STRING      ".comment"
+#define LABEL_CHARS             "abcdefghijklmnopqrstuvwxyz_0123456789" // != NULLL
+#define NAME_CMD_STRING         ".name"        // != NULL
+#define COMMENT_CMD_STRING      ".comment"     // != NULL
 
 /*
 ** regs

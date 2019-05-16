@@ -22,12 +22,15 @@
 char *add_char(char *, char);
 char *my_itohex(int, char *);
 char **read_my_file(char *);
-int search_size(char **, asm_t *);
+coding_style_t *search_coding_byte(char **, asm_t *);
 int detect_my_cmd(char *);
 char *my_bintohex(char *);
 int create_my_bin(asm_t *);
 int big_to_little_endian(int, int);
+int my_bintoi(char *);
+void take_int(char **, coding_style_t *);
 
+int array_len(char **);
 char *my_strcat(char *, char *);
 int my_strlen_char(char *, char );
 void my_putchar(char);

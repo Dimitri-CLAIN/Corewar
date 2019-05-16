@@ -36,13 +36,37 @@ void write_header(asm_t *info, int fd)
     write(fd, &info->header, sizeof(info->header));
 }
 
+void write_cmd(command_t *cmd, int fd)
+{
+    int n = 0;
+    int arg = 0;
+
+    while (my_strcmp(op_tab[n].mnemonique, cmd->name) != TRUE)
+        n++;
+    write(fd, &op_tab[n].code, 1);
+    write(fd, &cmd->c_b->code, 1);
+    n = 0;
+    while (cmd->c_b->arg[n] != NULL) {
+        arg = my_getnbr(cmd->c_b->arg[n]->arg);
+        if (cmd->c_b->arg[n]->size != 1)
+            arg = big_to_little_endian(arg, cmd->c_b->arg[n]->size);
+        write(fd, &arg, cmd->c_b->arg[n]->size);
+        printf("%s->[%d]\n", cmd->c_b->arg[n]->arg, arg);
+        n++;
+    }
+}
+
 int create_my_bin(asm_t *info)
 {
-    char *name = my_strcat(info->name, ".cor");
+    //  char *name = my_strcat(info->name, ".cor");//mettre le .cor la ou le fichier .s est, prendre l'arg comme nom
+    char *name = "zork.cor";
     int fd = open(name, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+    int n = 0;
 
-    write_header(info, fd);
-    //creat_cmd(info, fd);
-//    write_commande(info, fd);
+    //write_header(info, fd);
+//    while (info->cmd[n] != NULL) {
+        write_cmd(info->cmd[n], fd);
+        n++;
+        //   }
     return (0);
 }
