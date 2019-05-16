@@ -27,9 +27,6 @@ int main(int ac, char **av)
     if (check_file(file, info) == 84) {
         ultimate_free(info, file);
         return (84);
-    printf("NAME = %s\nCOMMENT = %s\nINST =\n", info->name, info->comment);
-    for (int z = 0 ; info->inst[z] != NULL ; z++)
-        printf("%s\n", info->inst[z]);
     }
     create_my_bin(info);
     ultimate_free(info, file);

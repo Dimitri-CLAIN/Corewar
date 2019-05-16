@@ -14,7 +14,9 @@ SRC_FILE	=		add_char.c	\
 				correct_size.c	\
 				check_file.c	\
 				get_inst.c	\
-				create_my_bin.c
+				create_my_bin.c	\
+				inst_checker.c	\
+				take_cmd.c
 
 SRC		=		$(addprefix $(SRC_FOLDER), $(SRC_FILE))
 

@@ -99,7 +99,7 @@ int check_file(char **file, asm_t *a)
     if (name == 84 || comment == 84 || comment < name)
         return (84);
     inst = get_inst(file, a, name, comment);
-    if (inst == 84/* || inst_checker(a) == 84*/)
+    if (inst == 84)
         return (84);
     return (0);
 }

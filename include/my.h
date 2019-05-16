@@ -43,7 +43,12 @@ char *my_str_to_word_array_n(char *, char **);
 void free_my_tab(char **);
 char **my_clean_str_to_array(char *, char);
 int my_strncmp(char *s1, char *s2, int nb);
+char *my_strcpy(char *str);
 int check_file(char **file, asm_t *a);
 int get_inst(char **file, asm_t *a, int name, int comment);
+int  inst_checker(asm_t *a);
+void list_create(asm_t *a);
+struct comment_t *takecmd_inst(char **file, asm_t *a);
+char *cmd_name(char *file);
 
 #endif
