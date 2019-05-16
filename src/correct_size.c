@@ -31,13 +31,29 @@ int do_flag_change(int flag, char **bin, int size, int *x)
     return (size);
 }
 
-int search_size(char **cmd, asm_t *info)
+int check_bin(char *bin)
+{
+    int n = 0;
+    int co = 0;
+
+    while (bin[n] != '\0') {
+        if (bin[n] == '1')
+            co++;
+        n++;
+    }
+    if (co <= 2)
+        return (FALSE);
+    return (TRUE);
+}
+
+coding_style_t *search_coding_byte(char **cmd, asm_t *info)
 {
     int size = 0;
     int n = 0;
     int flag = 0;
     char *bin = malloc(sizeof(char) * 9);
     int x = 0;
+    coding_style_t *code = malloc(sizeof(*code));
 
     bin[8] = '\0';
     while (cmd[n] != NULL) {
@@ -50,6 +66,11 @@ int search_size(char **cmd, asm_t *info)
         bin[x] = '0';
         x++;
     }
-    
-    return (size);
+    if (check_bin(bin) != FALSE)
+        code->code = my_bintoi(bin);
+    else
+        code->code = NULL;
+    code->bin = bin;
+    return (code);
 }
+//24 ligne

@@ -16,9 +16,8 @@ char *give_name(char *str)
     for (int nb = 0; str[nb] != '\0'; nb++)
         if (str[nb] == '/')
             last = nb;
-    if (last == 0)
-        return (str);
-    last++;
+    if (last != 0)
+        last++;
     str = str + last;
     for (last = 0; str[last] != '\0' && str[last] != '.'; last++);
     if (str[last] == '\0')

@@ -53,7 +53,7 @@ int cmd_len(char **file, asm_t *a)
     return (len);
 }
 
-struct comment_t *takecmd_name(char **file, asm_t *a)
+command_t **takecmd_name(char **file, asm_t *a)
 {
     int j = 0;
     char *cmp = NULL;
@@ -64,7 +64,7 @@ struct comment_t *takecmd_name(char **file, asm_t *a)
         cmp = cmd_name(file[i]);
         for (int y = 0 ; y != 16 ; y++) {
             my_strcmp(cmp, test[y].str) == TRUE ?
-            a->cmd[j].name = my_strcpy(cmp), j = j + 1 : 0;
+            a->cmd[j][0].name = my_strcpy(cmp), j = j + 1 : 0;
         }
         free(cmp);
     }
@@ -74,9 +74,10 @@ struct comment_t *takecmd_name(char **file, asm_t *a)
 int get_inst(char **file, asm_t *a, int name, int comment)
 {
     a->cmd_nb = cmd_len(file, a);
-    a->cmd = malloc(sizeof(command_t) * (a->cmd_nb + 1));
+    a->cmd = malloc(sizeof(command_t *) * (a->cmd_nb + 1));
+    for (int i = 0; i != a->cmd_nb ; i++)
+        a->cmd[i] = malloc(sizeof(command_t));
+    a->cmd[a->cmd_nb] = NULL;
     a->cmd = takecmd_name(file, a);
     a->cmd = takecmd_inst(file, a);
-    for (int i = 0 ; a->cmd[0].inst[i] != NULL ; i++)
-        printf("%s\n", a->cmd[0].inst[i]);
 }

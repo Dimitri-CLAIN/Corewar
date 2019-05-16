@@ -16,7 +16,9 @@ enum Bool {
 enum command {
     REGISTER = 2,
     DIRECT,
-    INDIRECT
+    INDIRECT,
+    LABEL,
+    INDEXE
 };
 
 #endif

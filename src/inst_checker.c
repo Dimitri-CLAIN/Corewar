@@ -11,7 +11,7 @@ int label_checker(char *str)
 {
     int y = 0;
 
-    for (int i = 0 ; str[i] != '\0' ; i++) {
+    for (int i = 0; str[i] != '\0'; i++) {
         while (LABEL_CHARS[y] != '\0' || LABEL_CHARS[y] == str[i])
             y = y + 1;
         if (LABEL_CHARS[y] == '\0')
@@ -23,8 +23,8 @@ int label_checker(char *str)
 
 int  inst_checker(asm_t *a)
 {
-    for (int i = 0 ; i != a->cmd_nb ; i++)
-        if (my_tablen(a->cmd[i].inst) > MAX_ARGS_NUMBER)
+    for (int i = 0; i != a->cmd_nb; i++)
+        if (my_tablen(a->cmd[i][0].inst) > MAX_ARGS_NUMBER)
             return (84);
     return (0);
 }

@@ -15,6 +15,9 @@ SRC_FILE	=		add_char.c	\
 				check_file.c	\
 				get_inst.c	\
 				create_my_bin.c	\
+				big_endian.c	\
+				op.c		\
+				get_arg.c	\
 				inst_checker.c	\
 				take_cmd.c		\
 				give_name.c

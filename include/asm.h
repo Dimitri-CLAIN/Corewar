@@ -9,24 +9,36 @@
 #define ASM_H_
 #include "op.h"
 
+typedef struct arg_s {
+    int size;
+    char *arg;
+    int state;
+} arg_t;
+
+typedef struct coding_style {
+    char *bin;
+    int code;
+    arg_t **arg;
+} coding_style_t;
+
+typedef struct s_command {
+    char *name;
+    coding_style_t *c_b;
+    char **inst;
+} command_t;
+
 typedef struct inst_ck {
     char *str;
     int len;
     //char **(*fonc)(char **tab, char **env, save *sv);
 } inst_t;
 
-typedef struct command_t {
-    char *name;
-    int cooding_byte;
-    char **inst;
-} command_t;
-
 typedef struct asm_t {
     struct header_s header;
     char *name;
     char *comment;
     struct inst_ck *list;
-    command_t *cmd;
+    command_t **cmd;
     int cmd_nb;
 } asm_t;
 
