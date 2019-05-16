@@ -18,7 +18,7 @@
 #define LABEL_CHAR              ':'
 #define DIRECT_CHAR             '%'
 #define SEPARATOR_CHAR          ','
-#define LABEL_CHARS             "abcdefghijklmnopqrstuvwxyz_0123456789" // != NULLL
+#define LABEL_CHARS             "abcdefghijklmnopqrstuvwxyz_0123456789" // != NULL
 #define NAME_CMD_STRING         ".name"        // != NULL
 #define COMMENT_CMD_STRING      ".comment"     // != NULL
 
@@ -31,7 +31,6 @@
 /*
 **
 */
-
 typedef char    args_type_t;
 
 #define T_REG           1       /* register */

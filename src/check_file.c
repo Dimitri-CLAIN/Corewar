@@ -100,7 +100,7 @@ int check_file(char **file, asm_t *a)
         bad_line_checker(file, a, name, comment) == 84)
         return (84);
     inst = get_inst(file, a, name, comment);
-    if (inst == 84)
+    if (inst == 84 || inst_checker(a) == 84)
         return (84);
     return (0);
 }

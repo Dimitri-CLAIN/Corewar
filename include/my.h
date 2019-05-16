@@ -25,7 +25,7 @@ char **read_my_file(char *);
 int search_size(char **, asm_t *);
 int detect_my_cmd(char *);
 char *my_bintohex(char *);
-int create_my_bin(asm_t *);
+int create_my_bin(asm_t *, char *name);
 
 char *my_strcat(char *, char *);
 int my_strlen_char(char *, char );
@@ -51,5 +51,9 @@ void list_create(asm_t *a);
 struct comment_t *takecmd_inst(char **file, asm_t *a);
 char *cmd_name(char *file);
 int bad_line_checker(char **file, asm_t *a, int name, int comment);
+void my_puttab(char **tab, char sep);
+int my_tablen(char **tab);
+int label_checker(char *str);
+char *give_name(char *str);
 
 #endif

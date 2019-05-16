@@ -15,6 +15,8 @@ char **read_my_file(char *file)
     char *clean = my_strdup("");
     FILE *fd = fopen(file, "r");
 
+    if (fd == NULL)
+        return (NULL);
     while (getline(&buf, &size, fd) != -1)
         clean = my_strcat(clean, buf);
     if (clean[my_strlen(clean) - 1] == '\n')

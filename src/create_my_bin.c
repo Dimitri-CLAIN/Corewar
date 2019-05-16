@@ -58,10 +58,10 @@ void write_header(asm_t *info, int fd)
     write(fd, info->header.comment, COMMENT_LENGTH);
 }
 
-int create_my_bin(asm_t *info)
+int create_my_bin(asm_t *info, char *name)
 {
-    char *name = my_strcat(info->name, ".cor");
-    int fd = open(name, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+    char *nm = my_strcat(give_name(name), ".cor");
+    int fd = open(nm, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
     write_header(info, fd);
     return (0);
