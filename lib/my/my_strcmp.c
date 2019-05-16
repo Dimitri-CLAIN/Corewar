@@ -31,7 +31,7 @@ int my_strcmp(char *s1, char *s2)
             return (FALSE);
         n++;
     }
-return (TRUE);
+    return (TRUE);
 }
 
 int checkn_len(char *s1, char *s2, int nb)

@@ -44,7 +44,7 @@ int get_name(char **file, asm_t *a)
         }
         i = i + 1;
     }
-    if (nb != 1 || a->name == NULL)
+    if (nb != 1 || a->name == NULL || my_strlen(a->name) > PROG_NAME_LENGTH)
         return (84);
     return (last);
 }
@@ -85,7 +85,7 @@ int get_comment(char **file, asm_t *a)
         }
         i = i + 1;
     }
-    if (nb != 1 || a->comment == NULL)
+    if (nb != 1 || a->comment == NULL || my_strlen(a->comment) > COMMENT_LENGTH)
         return (84);
     return (last);
 }
@@ -96,7 +96,8 @@ int check_file(char **file, asm_t *a)
     int comment = get_comment(file, a);
     int inst = 0;
 
-    if (name == 84 || comment == 84 || comment < name)
+    if (name == 84 || comment == 84 || comment < name ||
+        bad_line_checker(file, a, name, comment) == 84)
         return (84);
     inst = get_inst(file, a, name, comment);
     if (inst == 84)

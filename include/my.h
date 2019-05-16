@@ -50,5 +50,6 @@ int  inst_checker(asm_t *a);
 void list_create(asm_t *a);
 struct comment_t *takecmd_inst(char **file, asm_t *a);
 char *cmd_name(char *file);
+int bad_line_checker(char **file, asm_t *a, int name, int comment);
 
 #endif
