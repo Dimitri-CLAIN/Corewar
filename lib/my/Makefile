@@ -17,7 +17,8 @@ SRC		=		free_my_tab.c			\
 				my_clean_str_to_array.c		\
 				my_strcat.c			\
 				my_strlen.c			\
-				my_strdup.c
+				my_strdup.c			\
+				my_strcpy.c
 
 OBJ	=			$(SRC:.c=.o)
 

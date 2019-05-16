@@ -12,6 +12,7 @@
 typedef struct arg_s {
     int size;
     char *arg;
+    int state;
 } arg_t;
 
 typedef struct coding_style {
@@ -26,17 +27,19 @@ typedef struct s_command {
     char **inst;
 } command_t;
 
-typedef struct asm_s {
-    struct header_s header;
-    char *name;
-    char *comment;
-    command_t **cmd;
-} asm_t;
-
 typedef struct inst_ck {
     char *str;
     int len;
     //char **(*fonc)(char **tab, char **env, save *sv);
 } inst_t;
+
+typedef struct asm_t {
+    struct header_s header;
+    char *name;
+    char *comment;
+    struct inst_ck *list;
+    command_t **cmd;
+    int cmd_nb;
+} asm_t;
 
 #endif

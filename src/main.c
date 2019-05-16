@@ -42,6 +42,7 @@ void init_my_commande(asm_t **info)
 
 int main(int ac, char **av)
 {
+    int n = 0;
     char **file = NULL;
     asm_t *info = malloc(sizeof(asm_t));
 
@@ -50,11 +51,15 @@ int main(int ac, char **av)
         return (84);
     }
     file = read_my_file(av[1]);
-    // if (check_file(file, info) == 84) {
-    //     ultimate_free(info, file);
-    //     return (84);
-    // }
-    init_my_commande(&info);
+    if (check_file(file, info) == 84) {
+        ultimate_free(info, file);
+        return (84);
+    }
+    while (info->cmd[n] != NULL) {
+        info->cmd[n]->c_b = search_coding_byte(info->cmd[n]->inst, info);
+        take_int(info->cmd[n]->inst, info->cmd[n]->c_b);
+        n++;
+    }
     create_my_bin(info);
-//    ultimate_free(info, file);
+    ultimate_free(info, file);
 }

@@ -58,15 +58,14 @@ void write_cmd(command_t *cmd, int fd)
 
 int create_my_bin(asm_t *info)
 {
-    //  char *name = my_strcat(info->name, ".cor");//mettre le .cor la ou le fichier .s est, prendre l'arg comme nom
-    char *name = "zork.cor";
+    char *name = my_strcat(info->name, ".cor");//mettre le .cor la ou le fichier .s est, prendre l'arg comme nom
     int fd = open(name, O_CREAT | O_WRONLY | O_TRUNC, 0664);
     int n = 0;
 
-    //write_header(info, fd);
-//    while (info->cmd[n] != NULL) {
+    write_header(info, fd);
+    while (info->cmd[n] != NULL) {
         write_cmd(info->cmd[n], fd);
         n++;
-        //   }
+    }
     return (0);
 }

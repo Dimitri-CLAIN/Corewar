@@ -9,6 +9,15 @@
 
 // Direct - Indirect -> peut etre un label
 
+int check_flag(char *cmd, char *name)
+{
+    int n = 0;
+
+    while (op_tab[n] != NULL && my_strcmp(name, op_tab[n].name) != TRUE)
+        n++;
+    
+}
+
 char *take_arg(char *cmd, int n)
 {
     char *arg = NULL;
@@ -23,8 +32,13 @@ char *take_arg(char *cmd, int n)
 
 void init_my_arg(int size, char *cmd, arg_t *arg)
 {
+    int flag = check_flag(cmd);
+
     arg->arg = take_arg(cmd, 1);
-    arg->size = size;    
+    if (flag == INDEXE || flag == LABEL)
+        arg->size = 2;
+    arg->size = size;
+    arg->state = flag;
 }
 
 void take_int(char **cmd, coding_style_t *c_d)
@@ -37,13 +51,13 @@ void take_int(char **cmd, coding_style_t *c_d)
     while (cmd[n] != NULL) {
         c_d->arg[i] = malloc(sizeof(arg_t));
         if (cmd[n][0] == DIRECT_CHAR) {
-            init_my_arg(DIR_SIZE, cmd[n], c_d->arg[i]);
+            init_my_arg(DIR_SIZE, cmd[n], c_d->arg[i], n);
             i++;
         } else if (cmd[n][0] == 'r') {
-            init_my_arg(1, cmd[n], c_d->arg[i]);
+            init_my_arg(1, cmd[n], c_d->arg[i], n);
             i++;
         } else {
-            init_my_arg(IND_SIZE, cmd[n], c_d->arg[i]);
+            init_my_arg(IND_SIZE, cmd[n], c_d->arg[i], n);
             i++;
         }
         n++;
