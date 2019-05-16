@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-SRC_FOLDER 	=		src/
+SRC_FOLDER 	=		asm/src/
 
 SRC_FILE	=		add_char.c	\
 				my_itohex.c	\
@@ -22,7 +22,7 @@ MAIN_FILE	=		main.c
 
 MAIN		=		$(addprefix $(SRC_FOLDER), $(MAIN_FILE))
 
-TEST_FOLDER	=		tests/
+TEST_FOLDER	=		asm/tests/
 
 TEST_FILE	=		tests_my_algo.c
 
@@ -30,36 +30,36 @@ TEST		=		$(addprefix $(TEST_FOLDER), $(TEST_FILE))
 
 OBJ		=		$(SRC:.c=.o) $(MAIN:.c=.o)
 
-NAME		=		asm
+NAME		=		asm/asm
 
 BIN		=		unit_tests
 
 CC		=		gcc
 
-CFLAGS		=		-I./include -g -W -Wall -Wextra
+CFLAGS		=		-Iasm/include -g -W -Wall -Wextra
 
-LIB		=		-L./lib -lmy
+LIB		=		-Lasm/lib -lmy
 
 LDFLAGS		=		-lcriterion --coverage
 
 all:				$(NAME)
 
 $(NAME):			$(OBJ)
-				make -sC lib/my
+				make -sC asm/lib/my
 				$(CC) -o $(NAME) $(OBJ) $(LIB)
 
 tests_run:
-				make -sC lib/my
+				make -sC asm/lib/my
 		$(CC) -o $(BIN) $(SRC) $(TEST) $(CFLAGS) $(LIB) $(LDFLAGS)
 				./$(BIN)
 
 clean:
-			make -sC lib/my clean
+			make -sC asm/lib/my clean
 			rm -f $(OBJ)
 			rm -f *.gc*
 
 fclean:			clean
-			make -sC lib/my fclean
+			make -sC asm/lib/my fclean
 			rm -f $(NAME)
 			rm -f $(BIN)
 
