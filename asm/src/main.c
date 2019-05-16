@@ -16,6 +16,8 @@ void ultimate_free(asm_t *info, char **file)
 
 int main(int ac, char **av)
 {
+    char *name = malloc(sizeof(char) * 1000);
+    int n = 0;
     char **file = NULL;
     asm_t *info = malloc(sizeof(asm_t));
 
@@ -28,6 +30,11 @@ int main(int ac, char **av)
         ultimate_free(info, file);
         return (84);
     }
+    while (av[1][n] != '.') {
+        name = add_char(name, av[n]);
+        n++;
+    }
+    info->name = name;
     create_my_bin(info);
     ultimate_free(info, file);
 }
