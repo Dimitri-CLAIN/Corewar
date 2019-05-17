@@ -47,9 +47,9 @@ int my_bintoi(char *nb)
         if (nb[n_pos] == '1')
             res += val;
         n_pos--;
-      val *= 2;
+        val *= 2;
     }
-    return (res);
+    return(res);
 }
 
 char *my_bintohex(char *bin)

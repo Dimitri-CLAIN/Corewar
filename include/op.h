@@ -18,7 +18,7 @@
 #define LABEL_CHAR              ':'
 #define DIRECT_CHAR             '%'
 #define SEPARATOR_CHAR          ','
-#define LABEL_CHARS             "abcdefghijklmnopqrstuvwxyz_0123456789" // != NULLL
+#define LABEL_CHARS             "abcdefghijklmnopqrstuvwxyz_0123456789" // != NULL
 #define NAME_CMD_STRING         ".name"        // != NULL
 #define COMMENT_CMD_STRING      ".comment"     // != NULL
 
@@ -28,9 +28,6 @@
 
 #define REG_NUMBER      16              /* r1 <--> rx */
 
-/*
-**
-*/
 
 typedef char arg;
 

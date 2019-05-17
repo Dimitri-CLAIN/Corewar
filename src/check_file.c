@@ -17,9 +17,9 @@ void take_name(char *line, asm_t *a)
     if (line[0] == '\0')
         return;
     line++;
-    for (int y = 0 ; line[y] != '\0' && line[y] != 34 ; y++, len++);
+    for (int y = 0; line[y] != '\0' && line[y] != 34; y++, len++);
     name = malloc(sizeof(char) * (len + 1));
-    for (int z = 0; line[z] != '\0' && line[z] != 34 ; z++) {
+    for (int z = 0; line[z] != '\0' && line[z] != 34; z++) {
         name[z] = line[z];
         name[z + 1] = '\0';
     }
@@ -59,9 +59,9 @@ void take_comment(char *line, asm_t *a)
     if (line[0] == '\0')
         return;
     line++;
-    for (int y = 0 ; line[y] != '\0' && line[y] != 34 ; y++, len++);
+    for (int y = 0; line[y] != '\0' && line[y] != 34; y++, len++);
     comment = malloc(sizeof(char) * (len + 1));
-    for (int z = 0; line[z] != '\0' && line[z] != 34 ; z++) {
+    for (int z = 0; line[z] != '\0' && line[z] != 34; z++) {
         comment[z] = line[z];
         comment[z + 1] = '\0';
     }
@@ -100,7 +100,7 @@ int check_file(char **file, asm_t *a)
         bad_line_checker(file, a, name, comment) == 84)
         return (84);
     inst = get_inst(file, a, name, comment);
-    if (inst == 84)
+    if (inst == 84 || inst_checker(a) == 84)
         return (84);
     return (0);
 }

@@ -17,7 +17,7 @@ int check_list(char *line)
     char *cmp = NULL;
 
     cmp = cmd_name(line);
-    for (int y = 0 ; y != 17 ; y++) {
+    for (int y = 0; y != 17; y++) {
         if (y == 16) {
             free(cmp);
             return (84);
@@ -58,7 +58,7 @@ char **take_inst(char *cmp, char *line)
     line = line + mv;
     line = my_clean_str(line);
     out = my_str_to_all_array(line, SEPARATOR_CHAR);
-    for (int i = 0 ; out[i] != NULL ; i++)
+    for (int i = 0; out[i] != NULL; i++)
         out[i] = my_clean_str(out[i]);
     return (out);
 }
@@ -70,9 +70,9 @@ command_t **takecmd_inst(char **file, asm_t *a)
 
     if (file == NULL)
         return (a->cmd);
-    for (int i = 0 ; file[i] ; i++) {
+    for (int i = 0; file[i]; i++) {
         cmp = cmd_name(file[i]);
-        for (int y = 0 ; y != 16 ; y++) {
+        for (int y = 0; y != 16; y++) {
             my_strcmp(cmp, list[y].str) == TRUE ?
             a->cmd[j][0].inst = take_inst(cmp, file[i]), j = j + 1 : 0;
         }

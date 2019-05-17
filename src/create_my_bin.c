@@ -51,15 +51,14 @@ void write_cmd(command_t *cmd, int fd)
         if (cmd->c_b->arg[n]->size != 1)
             arg = big_to_little_endian(arg, cmd->c_b->arg[n]->size);
         write(fd, &arg, cmd->c_b->arg[n]->size);
-        printf("%s->[%d]\n", cmd->c_b->arg[n]->arg, arg);
         n++;
     }
 }
 
-int create_my_bin(asm_t *info)
+int create_my_bin(asm_t *info, char *name)
 {
-    char *name = my_strcat(info->name, ".cor");//mettre le .cor la ou le fichier .s est, prendre l'arg comme nom
-    int fd = open(name, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+    char *nm = my_strcat(give_name(name), ".cor");
+    int fd = open(nm, O_CREAT | O_WRONLY | O_TRUNC, 0664);
     int n = 0;
 
     write_header(info, fd);

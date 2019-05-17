@@ -47,8 +47,6 @@ void init_my_arg(int size, char *cmd, arg_t *arg, int flag)
     arg->arg = take_arg(cmd, 1);
     if (flag == INDEXE || flag == T_LAB)
         arg->size = 2;
-    arg->size = size;
-    arg->state = flag;
 }
 
 void take_int(char **cmd, coding_style_t *c_d, char *name)

@@ -19,7 +19,8 @@ SRC_FILE	=		add_char.c	\
 				op.c		\
 				get_arg.c	\
 				inst_checker.c	\
-				take_cmd.c
+				take_cmd.c		\
+				give_name.c
 
 SRC		=		$(addprefix $(SRC_FOLDER), $(SRC_FILE))
 

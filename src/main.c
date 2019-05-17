@@ -25,6 +25,8 @@ int main(int ac, char **av)
         return (84);
     }
     file = read_my_file(av[1]);
+    if (file == NULL)
+        return (84);
     if (check_file(file, info) == 84) {
         ultimate_free(info, file);
         return (84);
@@ -34,6 +36,6 @@ int main(int ac, char **av)
         take_int(info->cmd[n]->inst, info->cmd[n]->c_b, info->cmd[n]->name);
         n++;
     }
-    create_my_bin(info);
+    create_my_bin(info, av[1]);
     ultimate_free(info, file);
 }

@@ -25,7 +25,7 @@ char **read_my_file(char *);
 coding_style_t *search_coding_byte(char **, asm_t *);
 int detect_my_cmd(char *);
 char *my_bintohex(char *);
-int create_my_bin(asm_t *);
+int create_my_bin(asm_t *, char *name);
 int big_to_little_endian(int, int);
 int my_bintoi(char *);
 void take_int(char **, coding_style_t *, char *);
@@ -55,5 +55,9 @@ void list_create(asm_t *a);
 command_t **takecmd_inst(char **file, asm_t *a);
 char *cmd_name(char *file);
 int bad_line_checker(char **file, asm_t *a, int name, int comment);
+void my_puttab(char **tab, char sep);
+int my_tablen(char **tab);
+int label_checker(char *str);
+char *give_name(char *str);
 
 #endif
