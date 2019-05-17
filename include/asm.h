@@ -10,7 +10,9 @@
 #include "op.h"
 
 typedef struct arg_s {
+    char *name_cmd;
     int size;
+    int pos_arg;
     char *arg;
     int state;
 } arg_t;

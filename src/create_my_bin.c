@@ -26,7 +26,7 @@ void prepare_header(asm_t *info)
 
     info->header.magic = big_to_little_endian(COREWAR_EXEC_MAGIC, DIR_SIZE);
     complet_str(n, info->name, info->header.name);
-    info->header.prog_size = big_to_little_endian(23, DIR_SIZE);
+    info->header.prog_size = big_to_little_endian(23, DIR_SIZE);//ne pas faire en dure !!!!!
     complet_str(n, info->comment, info->header.comment);
 }
 

@@ -28,7 +28,7 @@ char *my_bintohex(char *);
 int create_my_bin(asm_t *);
 int big_to_little_endian(int, int);
 int my_bintoi(char *);
-void take_int(char **, coding_style_t *);
+void take_int(char **, coding_style_t *, char *);
 
 int array_len(char **);
 char *my_strcat(char *, char *);

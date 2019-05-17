@@ -32,7 +32,11 @@
 **
 */
 
-typedef char    args_type_t;
+typedef char arg;
+
+typedef struct arg_type {
+    arg type_arg[MAX_ARGS_NUMBER];
+} args_type_t;
 
 #define T_REG           1       /* register */
 #define T_DIR           2       /* direct  (ld  #1,r1  put 1 into r1) */
