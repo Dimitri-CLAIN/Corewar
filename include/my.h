@@ -25,12 +25,18 @@ char **read_my_file(char *);
 coding_style_t *search_coding_byte(char **, asm_t *);
 int detect_my_cmd(char *);
 char *my_bintohex(char *);
-int create_my_bin(asm_t *, char *name);
+int create_my_bin(asm_t *, char *);
 int big_to_little_endian(int, int);
 int my_bintoi(char *);
 void take_int(char **, coding_style_t *, char *);
+void int_cmd_pos(command_t *);
+char *take_arg(char *, int);
+
+int label_to_funct(char *, command_t **, int);
+void search_label(command_t **);
 
 int array_len(char **);
+char *my_itoa(int);
 char *my_strcat(char *, char *);
 int my_strlen_char(char *, char );
 void my_putchar(char);
