@@ -39,12 +39,13 @@ void write_header(asm_t *info, int fd)
 void write_cmd(command_t *cmd, int fd)
 {
     int n = 0;
-    int arg = 0;
+    unsigned int arg = 0;
 
     while (my_strcmp(op_tab[n].mnemonique, cmd->name) != TRUE)
         n++;
     write(fd, &op_tab[n].code, 1);
-    write(fd, &cmd->c_b->code, 1);
+    if (cmd->c_b->code != 0)
+        write(fd, &cmd->c_b->code, 1);
     n = 0;
     while (cmd->c_b->arg[n] != NULL) {
         arg = my_getnbr(cmd->c_b->arg[n]->arg);
@@ -60,10 +61,16 @@ int create_my_bin(asm_t *info, char *name)
     char *nm = my_strcat(give_name(name), ".cor");
     int fd = open(nm, O_CREAT | O_WRONLY | O_TRUNC, 0664);
     int n = 0;
+    int x = 0;
 
     write_header(info, fd);
     while (info->cmd[n] != NULL) {
-        write_cmd(info->cmd[n], fd);
+        if (info->cmd[n]->state != LABEL)
+            write_cmd(info->cmd[n], fd);
+        else {
+            write_cmd(info->cmd[n]->labels.cmd[x], fd);
+            x++;
+        }
         n++;
     }
     return (0);

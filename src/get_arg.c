@@ -64,4 +64,3 @@ void take_int(char **cmd, coding_style_t *c_d, char *name)
         n++;
     }
 }
-//taille correct sauf pour "live: live %1"

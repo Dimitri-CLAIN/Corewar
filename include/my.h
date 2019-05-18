@@ -31,7 +31,6 @@ int my_bintoi(char *);
 void take_int(char **, coding_style_t *, char *);
 void int_cmd_pos(command_t *);
 char *take_arg(char *, int);
-
 int label_to_funct(char *, command_t **, int);
 void search_label(command_t **);
 

@@ -8,6 +8,7 @@
 #ifndef _ASM_H_
 #define _ASM_H_
 #include "op.h"
+#include "my.h"
 
 typedef struct arg_s {
     char *name_cmd;
@@ -23,12 +24,22 @@ typedef struct coding_style {
     arg_t **arg;
 } coding_style_t;
 
-typedef struct s_command {
+typedef struct s_command command_t;
+
+typedef struct labels {
+    char *name;
+    command_t **cmd;
+    int pos;
+} labels_t;
+
+struct s_command {
+    int state;
     int pos;
     char *name;
     coding_style_t *c_b;
     char **inst;
-} command_t;
+    labels_t labels;
+};
 
 typedef struct inst_ck {
     char *str;
@@ -36,11 +47,6 @@ typedef struct inst_ck {
     //char **(*fonc)(char **tab, char **env, save *sv);
 } inst_t;
 
-typedef struct label_s {
-    char *name_label;
-    int position;
-    arg_t **arg;
-} label_t;
 
 typedef struct asm_t {
     struct header_s header;
@@ -48,7 +54,6 @@ typedef struct asm_t {
     char *comment;
     struct inst_ck *list;
     command_t **cmd;
-    label_t **label;
     int cmd_nb;
     int p_s;
 } asm_t;
