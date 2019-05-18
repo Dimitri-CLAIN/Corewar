@@ -32,7 +32,7 @@
 typedef char arg;
 
 typedef struct arg_type {
-    arg type_arg[MAX_ARGS_NUMBER];
+   arg type_arg[MAX_ARGS_NUMBER];
 } args_type_t;
 
 #define T_REG           1       /* register */

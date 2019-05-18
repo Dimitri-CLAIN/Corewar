@@ -94,13 +94,15 @@ int check_file(char **file, asm_t *a)
 {
     int name = get_name(file, a);
     int comment = get_comment(file, a);
+    int labels = get_cmd(file, a, name, comment);
     int inst = 0;
 
-    if (name == 84 || comment == 84 || comment < name ||
-        bad_line_checker(file, a, name, comment) == 84)
+    if (name == 84 || comment == 84 || comment < name/* ||
+        bad_line_checker(file, a, name, comment) == 84*/)
         return (84);
-    inst = get_inst(file, a, name, comment);
+    /*inst = get_inst(file, a, name, comment);
     if (inst == 84 || inst_checker(a) == 84)
-        return (84);
+        return (84);*/
+    printf("PASS\n");
     return (0);
 }

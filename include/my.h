@@ -59,5 +59,11 @@ void my_puttab(char **tab, char sep);
 int my_tablen(char **tab);
 int label_checker(char *str);
 char *give_name(char *str);
+int my_live(command_t a);
+int get_labels(char **file, asm_t *a);
+int get_cmd(char **file, asm_t *a, int name, int comment);
+void sv_cmd(char **file, asm_t *a, int name, int comment);
+int check_label(char *str);
+int check_inst(char *str);
 
 #endif

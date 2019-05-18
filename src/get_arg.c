@@ -20,10 +20,13 @@ int check_flag(char *cmd, char *name, int flag, int pos)
     while (op_tab[n].type[pos].type_arg[x] != 0) {
         if (op_tab[n].type[pos].type_arg[x] == flag)
             return (flag);
+        x++;
     }
+    x = 0;
     while (op_tab[n].type[pos].type_arg[x] != 0) {
         if (flag != T_REG && op_tab[n].type[pos].type_arg[x] == INDEXE)
             return (INDEXE);
+        x++;
     }
     return (flag);
 }

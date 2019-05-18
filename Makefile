@@ -20,7 +20,8 @@ SRC_FILE	=		add_char.c	\
 				get_arg.c	\
 				inst_checker.c	\
 				take_cmd.c		\
-				give_name.c
+				give_name.c		\
+				get_labels.c
 
 SRC		=		$(addprefix $(SRC_FOLDER), $(SRC_FILE))
 
@@ -42,7 +43,7 @@ BIN		=		unit_tests
 
 CC		=		gcc
 
-CFLAGS		=		-I./include -g -W -Wall -Wextra
+CFLAGS		=		-I./include -g -W
 
 LIB		=		-L./lib -lmy
 
