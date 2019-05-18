@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** correct size
 ** File description:
-** 
+** correct size
 */
 
 #include "my.h"
@@ -18,7 +18,7 @@ int do_flag_change(int flag, char **bin, int size, int *x)
     }
     if (flag == DIRECT) {
         size += DIR_SIZE;
-       (*bin)[*x] = '1';
+        (*bin)[*x] = '1';
         (*bin)[*x + 1] = '0';
         *x += 2;
     }

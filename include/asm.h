@@ -5,8 +5,8 @@
 ** h
 */
 
-#ifndef ASM_H_
-#define ASM_H_
+#ifndef _ASM_H_
+#define _ASM_H_
 #include "op.h"
 #include "my.h"
 
@@ -46,6 +46,7 @@ typedef struct inst_ck {
     int len;
     int (*fonc)(command_t a);
 } inst_t;
+
 
 typedef struct asm_t {
     struct header_s header;

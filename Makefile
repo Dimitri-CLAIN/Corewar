@@ -8,6 +8,7 @@
 SRC_FOLDER 	=		src/
 
 SRC_FILE	=		add_char.c	\
+				my_itoa.c	\
 				my_itohex.c	\
 				read_my_file.c	\
 				command_to_hexa.c\
@@ -19,9 +20,11 @@ SRC_FILE	=		add_char.c	\
 				op.c		\
 				get_arg.c	\
 				inst_checker.c	\
-				take_cmd.c		\
-				give_name.c		\
-				get_labels.c
+				get_labels.c	 \
+				take_cmd.c	\
+				give_name.c	\
+				prepare_label_indexe.c	\
+				check_arg.c
 
 SRC		=		$(addprefix $(SRC_FOLDER), $(SRC_FILE))
 

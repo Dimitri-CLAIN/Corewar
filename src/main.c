@@ -31,11 +31,7 @@ int main(int ac, char **av)
         //ultimate_free(info, file);
         return (84);
     }
-    /*while (info->cmd[n] != NULL) {
-        info->cmd[n]->c_b = search_coding_byte(info->cmd[n]->inst, info);
-        take_int(info->cmd[n]->inst, info->cmd[n]->c_b, info->cmd[n]->name);
-        n++;
-    }*/
-    //create_my_bin(info, av[1]);
-    //ultimate_free(info, file);
+    search_label(info->cmd);
+    create_my_bin(info, av[1]);
+    ultimate_free(info, file);
 }

@@ -75,6 +75,9 @@ command_t **takecmd_name(char **file, asm_t *a)
 /*
 int get_inst(char **file, asm_t *a, int name, int comment)
 {
+    //faire un check_label; il verifier si c'est un label ou non, 
+    // si oui il doit remplire la partie label
+    //verifie bien les cas d'erreur parceque les champions donner ne compile pas
     a->cmd_nb = cmd_len(file, a);
     a->cmd = malloc(sizeof(command_t *) * (a->cmd_nb + 1));
     for (int i = 0; i != a->cmd_nb ; i++)
