@@ -28,7 +28,7 @@ int main(int ac, char **av)
     if (file == NULL)
         return (84);
     if (check_file(file, info) == 84) {
-        //ultimate_free(info, file);
+        ultimate_free(info, file);
         return (84);
     }
     search_label(info->cmd);
