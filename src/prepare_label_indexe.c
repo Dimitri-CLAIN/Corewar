@@ -43,7 +43,6 @@ int label_to_funct(char *label, command_t **all_cmd, int pos_label)
     int length = 0;
 
     while (all_cmd[n] != NULL) {
-        //printf("cmd = [%s] name label = [%s]-> label:[%s]\n", all_cmd[n]->name, all_cmd[n]->labels.name, label);
         if (all_cmd[n]->name == NULL &&
         my_strcmp(all_cmd[n]->labels.name, label) == TRUE) {
             length = (all_cmd[n]->pos - pos_label);

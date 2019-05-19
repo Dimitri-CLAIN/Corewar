@@ -8,14 +8,17 @@
 #include "my.h"
 #include "op.h"
 
-char *complet_str(int n, int size, char *str, char *head)
+char *complet_str(int n, char *str, char *head, int size)
 {
     int x = 0;
 
-    head = my_memset(NULL, size, 0);
     while (str[x] != '\0') {
         head[n] = str[x];
         x++;
+        n++;
+    }
+    while (n != size) {
+        head[n] = 0;
         n++;
     }
     return (head);
@@ -25,10 +28,11 @@ void prepare_header(asm_t *info)
 {
     int n = 0;
 
+    my_memset((char *)&info->header, sizeof(info->header), 0);
     info->header.magic = big_to_little_endian(COREWAR_EXEC_MAGIC, DIR_SIZE);
-    complet_str(n, PROG_NAME_LENGTH, info->name, info->header.name);
+    complet_str(n, info->name, info->header.name, PROG_NAME_LENGTH);
     info->header.prog_size = big_to_little_endian(info->p_s, DIR_SIZE);
-    complet_str(n, COMMENT_LENGTH, info->comment, info->header.comment);
+    complet_str(n, info->comment, info->header.comment, COMMENT_LENGTH);
 }
 
 void write_header(asm_t *info, int fd)
