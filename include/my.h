@@ -72,5 +72,6 @@ int get_cmd(char **file, asm_t *a, int name, int comment);
 void sv_cmd(char **file, asm_t *a, int name, int comment);
 int check_label(char *);
 int check_inst(char *str);
+int val_inst(command_t cmd);
 
 #endif

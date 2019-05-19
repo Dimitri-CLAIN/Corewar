@@ -97,12 +97,13 @@ int check_file(char **file, asm_t *a)
     int labels = get_cmd(file, a, name, comment);
     int inst = 0;
 
-    if (name == 84 || comment == 84 || comment < name/* ||
-        bad_line_checker(file, a, name, comment) == 84*/)
+    if (name == 84 || comment == 84 || comment < name || labels == 84)
         return (84);
-    /*inst = get_inst(file, a, name, comment);
-    if (inst == 84 || inst_checker(a) == 84)
-        return (84);*/
+    for (int i = 0; a->cmd != NULL && a->cmd[i] != NULL; i++) {
+        if (a->cmd[i][0].state == LABEL);
+        if (a->cmd[i][0].state == FALSE && val_inst(a->cmd[i][0]) == 84)
+            return (84);
+    }
     printf("PASS\n");
     return (0);
 }
