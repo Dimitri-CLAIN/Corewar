@@ -20,13 +20,13 @@ SRC_FILE	=		add_char.c	\
 				op.c		\
 				get_arg.c	\
 				inst_checker.c	\
-				get_labels.c	 \
 				take_cmd.c	\
 				give_name.c	\
 				prepare_label_indexe.c	\
 				check_arg.c			\
 				get_inst_two.c		\
-				val_check.c
+				val_check.c			\
+				inst_checker_two.c
 
 SRC		=		$(addprefix $(SRC_FOLDER), $(SRC_FILE))
 

@@ -76,5 +76,6 @@ int val_inst(command_t cmd, asm_t *info);
 int check_flag(char *cmd, char *name, int flag, int pos);
 int check_label_char(char c);
 int val_label(command_t cmd, asm_t *info);
+int my_live(command_t a);
 
 #endif

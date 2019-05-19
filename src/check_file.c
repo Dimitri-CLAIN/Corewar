@@ -105,6 +105,5 @@ int check_file(char **file, asm_t *a)
         if (a->cmd[i][0].state == FALSE && val_inst(a->cmd[i][0], a) == 84)
             return (84);
     }
-    printf("PASS\n");
     return (0);
 }

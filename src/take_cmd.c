@@ -11,8 +11,8 @@ inst_t list[] = {{"live", 4, &my_live}, {"ld", 2, &my_live}, {"st", 2, &my_live}
             , {"add", 3, &my_live}, {"sub", 3, &my_live}, {"and", 3, &my_live},
             {"or", 2, &my_live}, {"xor", 3, &my_live}, {"zjmp", 4, &my_live},
             {"ldi", 3, &my_live}, {"sti", 3, &my_live}, {"fork", 4, &my_live},
-            {"lld ", 3, &my_live}, {"lldi", 4, &my_live}, {"lfork", 5, &my_live},
-            {"aff", 3, &my_live}};
+            {"lld ", 3, &my_live}, {"lldi", 4, &my_live},
+            {"lfork", 5, &my_live}, {"aff", 3, &my_live}};
 
 int check_list(char *line)
 {
