@@ -12,7 +12,7 @@ char *take_arg(char *cmd, int n)
     char *arg = NULL;
 
     arg = my_strdup("");
-    while (cmd[n] != '\0') {
+    while (cmd != NULL && cmd[n] != '\0') {
         if (cmd[n] != LABEL_CHAR)
             arg = add_char(arg, cmd[n]);
         n++;

@@ -29,6 +29,10 @@ void int_cmd_pos(command_t *all_cmd)
     int n = 0;
     static int pos = 1;
 
+    if (all_cmd->inst == NULL) {
+        all_cmd->pos = pos;
+        return;
+    }
     pos += calcul_size_cmd(all_cmd->c_b, pos);
     all_cmd->pos = pos - calcul_size_cmd(all_cmd->c_b, pos);
 }
@@ -39,7 +43,9 @@ int label_to_funct(char *label, command_t **all_cmd, int pos_label)
     int length = 0;
 
     while (all_cmd[n] != NULL) {
-        if (my_strcmp(all_cmd[n]->labels.name, label) == TRUE) {
+        //printf("cmd = [%s] name label = [%s]-> label:[%s]\n", all_cmd[n]->name, all_cmd[n]->labels.name, label);
+        if (all_cmd[n]->name == NULL &&
+        my_strcmp(all_cmd[n]->labels.name, label) == TRUE) {
             length = (all_cmd[n]->pos - pos_label);
             return (length);
         }
@@ -75,7 +81,8 @@ void search_label(command_t **all_cmd)
 
     while (all_cmd[n] != NULL) {
         if (all_cmd[n]->name == NULL && all_cmd[n]->state == LABEL) {
-            give_indexe(x, all_cmd[n]->labels.cmd);
+            if (all_cmd[n]->labels.cmd != NULL)
+                give_indexe(x, all_cmd[n]->labels.cmd);
             x++;
         } else
             give_indexe(n, all_cmd);

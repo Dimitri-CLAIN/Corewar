@@ -41,7 +41,7 @@ int check_bin(char *bin)
             co++;
         n++;
     }
-    if (co <= 2)
+    if (co < 2)
         return (FALSE);
     return (TRUE);
 }
@@ -69,7 +69,7 @@ coding_style_t *search_coding_byte(char **cmd, asm_t *info)
     if (check_bin(bin) != FALSE)
         code->code = my_bintoi(bin);
     else
-        code->code = NULL;
+        code->code = 0;
     code->bin = bin;
     return (code);
 }

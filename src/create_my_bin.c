@@ -67,7 +67,7 @@ int create_my_bin(asm_t *info, char *name)
     while (info->cmd[n] != NULL) {
         if (info->cmd[n]->state != LABEL)
             write_cmd(info->cmd[n], fd);
-        else {
+        else if (info->cmd[n]->labels.cmd != NULL) {
             write_cmd(info->cmd[n]->labels.cmd[x], fd);
             x++;
         }

@@ -87,12 +87,15 @@ command_t *set_label(char *line, asm_t *info)
     out->name = NULL;
     out->inst = NULL;
     out->labels.name = label_name(line);
-    if ((my_strlen(out->labels.name)  + 1) >= my_strlen(line))
+    if ((my_strlen(out->labels.name) + 1) >= my_strlen(line))
         out->labels.cmd = NULL;
     line = line + (my_strlen(out->labels.name) + 1);
     line = my_clean_str(line);
-    if (line[0] == '\0')
-        out->inst = NULL;
+    if (line[0] == '\0') {
+        out->labels.cmd = NULL;
+        int_cmd_pos(out);
+        return (out);
+    }
     out->labels.cmd = malloc(sizeof(command_t *) * 2);
     out->labels.cmd[0] = malloc(sizeof(command_t));
     out->labels.cmd[0] = set_inst(line, info);
