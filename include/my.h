@@ -22,7 +22,7 @@
 char *add_char(char *, char);
 char *my_itohex(int, char *);
 char **read_my_file(char *);
-coding_style_t *search_coding_byte(char **, asm_t *);
+coding_style_t *search_coding_byte(char **, asm_t *, char *);
 int detect_my_cmd(char *);
 char *my_bintohex(char *);
 int create_my_bin(asm_t *, char *);
@@ -33,6 +33,7 @@ void int_cmd_pos(command_t *);
 char *take_arg(char *, int);
 int label_to_funct(char *, command_t **, int);
 void search_label(command_t **);
+int check_bin(char *);
 
 int array_len(char **);
 char *my_itoa(int);

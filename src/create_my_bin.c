@@ -61,15 +61,13 @@ int create_my_bin(asm_t *info, char *name)
     char *nm = my_strcat(give_name(name), ".cor");
     int fd = open(nm, O_CREAT | O_WRONLY | O_TRUNC, 0664);
     int n = 0;
-    int x = 0;
 
     write_header(info, fd);
     while (info->cmd[n] != NULL) {
         if (info->cmd[n]->state != LABEL)
             write_cmd(info->cmd[n], fd);
         else if (info->cmd[n]->labels.cmd != NULL) {
-            write_cmd(info->cmd[n]->labels.cmd[x], fd);
-            x++;
+            write_cmd(info->cmd[n]->labels.cmd[0], fd);
         }
         n++;
     }

@@ -31,22 +31,24 @@ int do_flag_change(int flag, char **bin, int size, int *x)
     return (size);
 }
 
-int check_bin(char *bin)
+int check_bin(char *name)
 {
-    int n = 0;
-    int co = 0;
-
-    while (bin[n] != '\0') {
-        if (bin[n] == '1')
-            co++;
-        n++;
-    }
-    if (co < 2)
+    if (my_strcmp(name, "live") == TRUE || my_strcmp(name, "zjmp") == TRUE ||
+    my_strcmp(name, "lfork") == TRUE || my_strcmp(name, "fork") == TRUE)
         return (FALSE);
     return (TRUE);
 }
 
-coding_style_t *search_coding_byte(char **cmd, asm_t *info)
+void init_code(char *name, char *bin, coding_style_t *code)
+{
+    if (check_bin(name) != FALSE)
+        code->code = my_bintoi(bin);
+    else
+        code->code = 0;
+    code->bin = bin;
+}
+
+coding_style_t *search_coding_byte(char **cmd, asm_t *info, char *name)
 {
     int size = 0;
     int n = 0;
@@ -66,11 +68,6 @@ coding_style_t *search_coding_byte(char **cmd, asm_t *info)
         bin[x] = '0';
         x++;
     }
-    if (check_bin(bin) != FALSE)
-        code->code = my_bintoi(bin);
-    else
-        code->code = 0;
-    code->bin = bin;
+    init_code(name, bin, code);
     return (code);
 }
-//24 ligne

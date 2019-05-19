@@ -73,7 +73,7 @@ command_t *set_inst(char *line, asm_t *info)
     for (int i = 0; out->inst != NULL && out->inst[i] != NULL; i++)
         out->inst[i] = my_clean_str(out->inst[i]);
     out->pos = 0;
-    out->c_b = search_coding_byte(out->inst, info);
+    out->c_b = search_coding_byte(out->inst, info, out->name);
     take_int(out->inst, out->c_b, out->name);
     int_cmd_pos(out);
     return (out);
