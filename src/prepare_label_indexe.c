@@ -78,7 +78,7 @@ void search_label(command_t **all_cmd)
     int n = 0;
     int pos_label = 0;
 
-    while (all_cmd[n] != NULL) {
+    while (all_cmd != NULL && all_cmd[n] != NULL) {
         if (all_cmd[n]->name == NULL && all_cmd[n]->state == LABEL) {
             if (all_cmd[n]->labels.cmd != NULL)
                 give_indexe(0, all_cmd[n]->labels.cmd);

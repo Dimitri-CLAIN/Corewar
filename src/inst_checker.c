@@ -14,6 +14,17 @@ inst_t lst[] = {{"live", 4, &my_live}, {"ld", 2, &my_live}, {"st", 2, &my_live}
             {"lld ", 3, &my_live}, {"lldi", 4, &my_live},
             {"lfork", 5, &my_live}, {"aff", 3, &my_live}};
 
+int check_label_char(char c)
+{
+    int i = 0;
+
+    for (i = 0; LABEL_CHARS[i] != '\0'; i++) {
+        if (LABEL_CHARS[i] == c)
+            return (0);
+    }
+    return (84);
+}
+
 int my_live(command_t a)
 {
     if (my_strcmp(a.name, op_tab[0].mnemonique) == FALSE)

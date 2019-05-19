@@ -100,8 +100,9 @@ int check_file(char **file, asm_t *a)
     if (name == 84 || comment == 84 || comment < name || labels == 84)
         return (84);
     for (int i = 0; a->cmd != NULL && a->cmd[i] != NULL; i++) {
-        if (a->cmd[i][0].state == LABEL);
-        if (a->cmd[i][0].state == FALSE && val_inst(a->cmd[i][0]) == 84)
+        if (a->cmd[i][0].state == LABEL && val_label(a->cmd[i][0], a) == 84)
+            return (84);
+        if (a->cmd[i][0].state == FALSE && val_inst(a->cmd[i][0], a) == 84)
             return (84);
     }
     printf("PASS\n");
