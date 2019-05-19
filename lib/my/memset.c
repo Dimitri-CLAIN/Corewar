@@ -10,11 +10,10 @@
 char *my_memset(char *str, int size, char c)
 {
     int n = 0;
-    char *mem = malloc(sizeof(char) * (size + 1));
 
     while (n != size) {
-        mem[n] = c;
+        str[n] = c;
         n++;
     }
-    return (mem);
+    return (str);
 }

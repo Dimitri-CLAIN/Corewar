@@ -32,7 +32,10 @@ int check_flag(char *cmd, char *name, int flag, int pos)
 void init_my_arg(int size, char *cmd, arg_t *arg, int flag)
 {
     flag = check_flag(cmd, arg->name_cmd, flag, arg->pos_arg);
-    arg->arg = take_arg(cmd, 1);
+    if (flag == T_IND)
+        arg->arg = take_arg(cmd, 0);
+    else
+        arg->arg = take_arg(cmd, 1);
     if (flag == INDEXE || flag == T_LAB)
         arg->size = 2;
     else
@@ -64,4 +67,3 @@ void take_int(char **cmd, coding_style_t *c_d, char *name)
         n++;
     }
 }
-/* check inst null avant de chercher */
