@@ -20,7 +20,8 @@ SRC		=		free_my_tab.c			\
 				my_strdup.c			\
 				my_strcpy.c			\
 				my_tablen.c			\
-				my_puttab.c
+				my_puttab.c			\
+				memset.c
 
 OBJ	=			$(SRC:.c=.o)
 

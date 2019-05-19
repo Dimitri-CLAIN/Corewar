@@ -59,6 +59,7 @@ void take_int(char **cmd, coding_style_t *c_d, char *name)
             i++;
         } else {
             init_my_arg(IND_SIZE, cmd[n], c_d->arg[i], T_IND);
+            printf("%s\n", cmd[n]);
             i++;
         }
         n++;

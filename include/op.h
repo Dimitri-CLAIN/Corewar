@@ -70,9 +70,9 @@ extern  op_t    op_tab[];
 struct header_s
 {
    int magic;
-   char name[PROG_NAME_LENGTH + 1];
+   char *name;
    int  prog_size;
-   char comment[COMMENT_LENGTH + 1];
+   char *comment;
 };
 
 typedef struct header_s header_t;

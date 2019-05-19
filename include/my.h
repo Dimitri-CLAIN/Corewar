@@ -18,6 +18,7 @@
 #include <fcntl.h>
 #include "asm.h"
 #include "enum.h"
+char *my_memset(char *str, int size, char c);
 
 char *add_char(char *, char);
 char *my_itohex(int, char *);
