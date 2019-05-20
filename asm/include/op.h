@@ -48,9 +48,9 @@ typedef struct op_s     op_t;
 
 extern  op_t    op_tab[];
 
-#define PROG_NAME_LENGTH        2000
+#define PROG_NAME_LENGTH        128
 #define COMMENT_LENGTH          2048
-#define COREWAR_EXEC_MAGIC      0x10
+#define COREWAR_EXEC_MAGIC      0xea83f3
 
 struct header_s
 {
