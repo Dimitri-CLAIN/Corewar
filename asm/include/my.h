@@ -77,5 +77,8 @@ int check_flag(char *cmd, char *name, int flag, int pos);
 int check_label_char(char c);
 int val_label(command_t cmd, asm_t *info);
 int my_live(command_t a);
+void set_struct_command(command_t *out);
+command_t *set_label(char *line, asm_t *info);
+command_t *set_inst(char *line, asm_t *info);
 
 #endif

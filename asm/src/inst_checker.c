@@ -74,9 +74,7 @@ command_t *set_label(char *line, asm_t *info)
 {
     command_t *out = malloc(sizeof(command_t));
 
-    out->state = LABEL;
-    out->name = NULL;
-    out->inst = NULL;
+    set_struct_command(out);
     out->labels.name = label_name(line);
     if ((my_strlen(out->labels.name) + 1) >= my_strlen(line))
         out->labels.cmd = NULL;
@@ -93,26 +91,4 @@ command_t *set_label(char *line, asm_t *info)
     out->labels.cmd[1] = NULL;
     out->pos = out->labels.cmd[0]->pos;
     return (out);
-}
-
-void sv_cmd(char **file, asm_t *a, int name, int comment)
-{
-    char *cmp = NULL;
-    int j = 0;
-
-    for (int i = 0; file[i] != NULL; i++) {
-        cmp = my_clean_str(file[i]);
-        if (cmp[0] != COMMENT_CHAR && check_label(cmp) == TRUE) {
-            a->cmd[j] = set_label(cmp, a);
-            j = j + 1;
-        }
-        else if (cmp[0] != '\0' &&
-            cmp[0] != COMMENT_CHAR && check_inst(cmp) == TRUE) {
-                a->cmd[j] = set_inst(cmp, a);
-                j = j + 1;
-            }
-        free(cmp);
-    }
-    a->cmd[j] = NULL;
-    a->p_s = (a->cmd[j - 1]->pos + 2);
 }

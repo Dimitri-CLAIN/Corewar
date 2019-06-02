@@ -7,6 +7,13 @@
 
 #include "my.h"
 
+void set_struct_command(command_t *out)
+{
+    out->state = LABEL;
+    out->name = NULL;
+    out->inst = NULL;
+}
+
 char *my_itohex(int nb, char *r_hex)
 {
     char *hex = "0123456789ABCDEF";

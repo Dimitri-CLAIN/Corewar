@@ -35,6 +35,18 @@ char *neg_nb(char *str)
     return (nb);
 }
 
+void my_itoa_two(int *size, char **str_nb, int *nb, int x)
+{
+    (*size) = my_counter_of_nb(*nb);
+    (*str_nb) = malloc(sizeof(char) * ((*size) + 1 + x));
+    (*str_nb)[(*size)--] = '\0';
+    while ((*size) >= 0) {
+        (*str_nb)[(*size)] = (*nb) % 10 + 48;
+        (*nb) /= 10;
+        (*size)--;
+    }
+}
+
 char *my_itoa(int nb)
 {
     int state = 0;
@@ -48,14 +60,7 @@ char *my_itoa(int nb)
         state = 1;
         nb *= -1;
     }
-    size = my_counter_of_nb(nb);
-    str_nb = malloc(sizeof(char) * (size + 1 + x));
-    str_nb[size--] = '\0';
-    while (size >= 0) {
-        str_nb[size] = nb % 10 + 48;
-        nb /= 10;
-        size--;
-    }
+    my_itoa_two(&size, &str_nb, &nb, x);
     if (str_nb != NULL && state == 1)
         str_nb = neg_nb(str_nb);
     return (str_nb);

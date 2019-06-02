@@ -37,7 +37,7 @@ int check_label(char *str)
     int y = 0;
 
     for (y = 0; str[y] != '\0' && str[y] != SEPARATOR_CHAR &&
-        str[y] != LABEL_CHAR && str[y] != DIRECT_CHAR; y++);
+    str[y] != LABEL_CHAR && str[y] != DIRECT_CHAR; y++);
     if (str[y] == LABEL_CHAR)
         return (TRUE);
     else
